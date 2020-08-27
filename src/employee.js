@@ -13,9 +13,14 @@ class Employee {
     ].includes(type)) {
       throw new Error(`Employee cannot be of type ${type}`);
     }
+    return '';
   }
 
   toString () {
     return `${this._name} (${this._type})`;
   }
 }
+
+module.exports = {
+  Employee
+};
