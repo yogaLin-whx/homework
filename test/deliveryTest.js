@@ -15,3 +15,18 @@ deliveryTest('isRush and deliveryTime is 1',t =>{
   const result = deliveryDate(anOrder,isRush);
   t.is(2,result);
 })
+
+deliveryTest('isRush and deliveryTime is 2',t =>{
+
+  const anOrder={
+    deliveryState:'NY',
+    placedOn:{
+      plusDays:(plusTime) => {
+         return plusTime;
+      }
+    }
+  };
+  const isRush = true;
+  const result = deliveryDate(anOrder,isRush);
+  t.is(3,result);
+})
