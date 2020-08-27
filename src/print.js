@@ -1,9 +1,8 @@
 function printOwing (invoice) {
   let outstanding = 0;
-  console.log('***********************');
-  console.log('**** Customer Owes ****');
-  console.log('***********************');
-
+  let print = '***********************\n'+
+              '**** Customer Owes ****\n'+
+              '***********************';
   // calculate outstanding
   for (const o of invoice.borderSpacing) {
     outstanding += o.amount;
@@ -14,7 +13,13 @@ function printOwing (invoice) {
   invoice.dueDate = new Date(today.getFullYear(), today.getMonth(), today.getDate() + 30);
 
   // print details
-  console.log(`name: ${invoice.customer}`);
-  console.log(`amount: ${outstanding}`);
-  console.log(`amount: ${invoice.dueDate.toLocaleDateString()}`);
+  print += `name: ${invoice.customer}\n`;
+  print += `amount: ${outstanding}\n`;
+  print += `amount: ${invoice.dueDate.toLocaleDateString()}\n`;
+  console.log(print);
+  return print;
 }
+
+module.exports = {
+  printOwing
+};

@@ -16,7 +16,6 @@ function deliveryDate (anOrder, isRush) {
     else {
       deliveryTime = 3;
     }
-    console.log(anOrder);
     return anOrder.placedOn.plusDays(1 + deliveryTime);
   }
   else {
