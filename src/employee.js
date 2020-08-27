@@ -13,7 +13,6 @@ class Employee {
     ].includes(type)) {
       throw new Error(`Employee cannot be of type ${type}`);
     }
-    return '';
   }
 
   toString () {
