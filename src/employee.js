@@ -6,12 +6,10 @@ class Employee {
   }
 
   validateType (type) {
-    if (![
-      'engineer',
-      'manager',
-      'salesman',
-    ].includes(type)) {
-      throw new Error(`Employee cannot be of type ${type}`);
+    switch(type){
+      case 'engineer' || 'manager' || 'salesman':break;
+      default:
+        throw new Error(`Employee cannot be of type ${type}`);
     }
   }
 
