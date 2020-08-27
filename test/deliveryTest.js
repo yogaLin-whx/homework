@@ -45,3 +45,18 @@ deliveryTest('isRush and deliveryTime is 3',t =>{
   const result = deliveryDate(anOrder,isRush);
   t.is(4,result);
 })
+
+deliveryTest('not Rush and deliveryTime is 2',t =>{
+
+  const anOrder={
+    deliveryState:'MA',
+    placedOn:{
+      plusDays:(plusTime) => {
+         return plusTime;
+      }
+    }
+  };
+  const isRush = false;
+  const result = deliveryDate(anOrder,isRush);
+  t.is(4,result);
+})
