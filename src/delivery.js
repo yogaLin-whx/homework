@@ -1,6 +1,5 @@
 function deliveryDate (anOrder, isRush) {
   if (isRush) {
-    console.log
     switch(anOrder.deliveryState){
       case 'MA':
       case 'CT':deliveryTime = 1;break;

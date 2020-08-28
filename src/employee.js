@@ -1,3 +1,9 @@
+const types = [
+  'engineer',
+  'manager',
+  'salesman'
+]
+
 class Employee {
   constructor (name, type) {
     this.validateType(type);
@@ -6,10 +12,8 @@ class Employee {
   }
 
   validateType (type) {
-    switch(type){
-      case 'engineer' || 'manager' || 'salesman':break;
-      default:
-        throw new Error(`Employee cannot be of type ${type}`);
+    if(!types.includes(type)){
+      throw new Error(`Employee cannot be of type ${type}`);
     }
   }
 
@@ -21,3 +25,5 @@ class Employee {
 module.exports = {
   Employee
 };
+
+
