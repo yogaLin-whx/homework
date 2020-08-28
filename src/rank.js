@@ -1,17 +1,12 @@
+function voyageZoneContains(voyage){
+  return ['china','east-indies'].includes(voyage.zone);
+}
+
 function voyageRisk (voyage) {
   let result = 1;
-  if (voyage.length > 4) {
-    result += 2;
-  }
-  if (voyage.length > 8) {
-    result += voyage.length - 8;
-  }
-  if ([
-    'china',
-    'east-indies',
-  ].includes(voyage.zone)) {
-    result += 4;
-  }
+  result += voyage.length>4 ? 2:0;
+  result += voyage.length>8 ? voyage.length - 8:0;
+  result += voyageZoneContains ? 4:0;
   return Math.max(result, 0);
 }
 
@@ -19,45 +14,28 @@ function hasChina (history) {
   return history.some(v => 'china' === v.zone);
 }
 
+function voyageZoneAndHistoryContainChina(voyage,history){
+  return voyage.zone === 'china' && hasChina(history);
+}
+
 function captainHistoryRisk (voyage, history) {
   let result = 1;
-  if (history.length < 5) {
-    result += 4;
-  }
+  result += history.length<5 ? 4:0;
   result += history.filter(v => v.profit < 0).length;
-  if (voyage.zone === 'china' && hasChina(history)) {
-    result -= 2;
-  }
+  result += voyageZoneAndHistoryContainChina(voyage,history) ? -2:0
   return Math.max(result, 0);
 }
 
 function voyageProfitFactor (voyage, history) {
   let result = 2;
-  if (voyage.zone === 'china') {
-    result += 1;
-  }
-  if (voyage.zone === 'east-indies') {
-    result += 1;
-  }
-  if (voyage.zone === 'china' && hasChina(history)) {
+  result += voyageZoneContains ? 1:0;
+  if (voyageZoneAndHistoryContainChina(voyage,history)) {
     result += 3;
-    if (history.length > 10) {
-      result += 1;
-    }
-    if (voyage.length > 12) {
-      result += 1;
-    }
-    if (voyage.length > 18) {
-      result -= 1;
-    }
-  }
-  else {
-    if (history.length > 8) {
-      result += 1;
-    }
-    if (voyage.length > 14) {
-      result -= 1;
-    }
+    result += history.length > 10 ? 1:0;
+    result += voyage.length > 12 && voyage.length <=18 ? 1:0;
+  }else {
+    result += history.length>8 ? 1:0;
+    result += voyage.length>14 ? -1:0;
   }
   return result;
 }
