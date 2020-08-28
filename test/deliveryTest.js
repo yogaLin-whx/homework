@@ -4,7 +4,7 @@ const {deliveryDate} = require('../src/delivery');
 deliveryTest('isRush and deliveryTime is 1',t =>{
 
   const anOrder={
-    deliveryState:'MA',
+    deliveryState:'CT',
     placedOn:{
       plusDays:(plusTime) => {
          return plusTime;

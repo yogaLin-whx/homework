@@ -13,11 +13,11 @@ printTest('printText',t =>{
     }]
   }
   const result = printOwing(invoice);
-
+  const today = new Date();
   t.is(result,'***********************\n'+
               '**** Customer Owes ****\n'+
               '***********************'+
               'name: chris\n'+
               'amount: 3\n'+
-              'amount: 9/26/2020\n');
+              'amount: '+ new Date(today.getFullYear(), today.getMonth(), today.getDate() + 30).toLocaleDateString() +'\n');
 })
