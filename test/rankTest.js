@@ -68,3 +68,117 @@ rankTest('rank case5:voyage length is 9 zone is china and history has a zone', t
   t.is(res, 'B')
 });
 
+rankTest('rank case6:voyage length is 15 zone is china and history have 6 zone', t => {
+  const voyage = {
+    zone: 'china',
+    length: 15,
+  };
+  const res = rating(voyage, history.slice(0,6));
+  t.is(res, 'A')
+});
+
+
+
+
+const voyage = {
+  zone: 'china',
+  length: 15,
+};
+const history = [
+  {
+    zone: 'china',
+    profit: 1,
+  },
+  {
+    zone: 'west-indies1',
+    profit: 1,
+  },
+  {
+    zone: 'east-indies',
+    profit: 6,
+  },
+  {
+    zone: 'west-indies',
+    profit: 18,
+  },
+  {
+    zone: 'china',
+    profit: -1,
+  },
+  {
+    zone: 'west-indies2',
+    profit: 1,
+  },
+  {
+    zone: 'west-indies3',
+    profit: 1,
+  },
+  {
+    zone: 'west-indies',
+    profit: 1,
+  },
+  {
+    zone: 'china',
+    profit: 1,
+  },
+  {
+    zone: 'west-indies1',
+    profit: 1,
+  },
+  {
+    zone: 'east-indies',
+    profit: 6,
+  },
+  {
+    zone: 'west-indies',
+    profit: 18,
+  },
+  {
+    zone: 'china',
+    profit: -1,
+  },
+  {
+    zone: 'west-indies2',
+    profit: 1,
+  },
+  {
+    zone: 'west-indies3',
+    profit: 1,
+  },
+  {
+    zone: 'west-indies',
+    profit: 1,
+  },
+  {
+    zone: 'china',
+    profit: 1,
+  },
+  {
+    zone: 'west-indies1',
+    profit: 1,
+  },
+  {
+    zone: 'east-indies',
+    profit: 6,
+  },
+  {
+    zone: 'west-indies',
+    profit: 18,
+  },
+  {
+    zone: 'china',
+    profit: -1,
+  },
+  {
+    zone: 'west-indies2',
+    profit: 1,
+  },
+  {
+    zone: 'west-indies3',
+    profit: 1,
+  },
+  {
+    zone: 'west-indies',
+    profit: 1,
+  }
+];
