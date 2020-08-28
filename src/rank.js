@@ -1,6 +1,3 @@
-
-function
-
 function voyageRisk (voyage) {
   let result = 1;
   if (voyage.length > 4) {
@@ -69,6 +66,7 @@ function rating (voyage, history) {
 }
 
 module.exports = {
+  rating
 };
 
 const voyage = {
