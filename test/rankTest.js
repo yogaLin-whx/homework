@@ -114,6 +114,15 @@ rankTest('rank cas10', t => {
   t.is(res, 'A')
 });
 
+rankTest('rank case11', t => {
+  const voyage = {
+    zone: 'east-indies',
+    length: 20,
+  };
+  const res = rating(voyage, history.slice(0,20));
+  t.is(res, 'B')
+});
+
 
 
 const voyage = {
